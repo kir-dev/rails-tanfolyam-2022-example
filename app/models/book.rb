@@ -24,4 +24,8 @@ class Book < ApplicationRecord
     "#{author.name}: #{title}"
   end
 
+  def numbers_in_library(library)
+    Acquisition.where(book_id: id, library: library).count
+  end
+
 end

@@ -1,5 +1,5 @@
 class LibrariesController < ApplicationController
-  before_action :set_library, only: %i[ show edit update destroy ]
+  before_action :set_library, only: %i[ show edit update destroy add_book new_book]
 
   # GET /libraries or /libraries.json
   def index
@@ -19,6 +19,17 @@ class LibrariesController < ApplicationController
   # GET /libraries/1/edit
   def edit
   end
+
+  # GET /libraries/1/new_book
+  def new_book; end
+
+  # POST /libraries/1/add_book
+  def add_book
+    @book = Book.find(acquisition_params[:book_id])
+    @library.acquisitions.create(book: @book, year: acquisition_params[:year])
+    redirect_to library_url(@library)
+  end
+  
 
   # POST /libraries or /libraries.json
   def create
@@ -68,5 +79,9 @@ class LibrariesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def library_params
     params.require(:library).permit(:name, :nationality)
+  end
+
+  def acquisition_params
+    params.require(:acquisition).permit(:book_id, :year)
   end
 end

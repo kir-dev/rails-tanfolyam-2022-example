@@ -13,6 +13,8 @@
     <th scope="col">Author</th>
     <th scope="col">Title</th>
     <th scope="col">Year written</th>
+    <th scope="col">#Copies</th>
+    <th scope="col">Action</th>
   </tr>
   </thead>
   <tbody>
@@ -22,6 +24,8 @@
       <td><%= book.author.name %></td>
       <td><%= book.title %></td>
       <td><%= book.year %></td>
+      <td><%= book.numbers_in_library @library %></td>
+      <td></td>
     </tr>
   <% end %>
   </tbody>
@@ -29,6 +33,7 @@
 
 <div class="btn-group" role="group">
   <%= link_to "Back to libraries", libraries_path, class: 'btn btn-secondary' %>
+  <%= link_to "Add book to library", new_book_library_path(@library), class: 'btn btn-outline-success' %>
   <%= link_to "Edit this library", edit_library_path(@library), class: 'btn btn-outline-warning' %>
 </div>
 

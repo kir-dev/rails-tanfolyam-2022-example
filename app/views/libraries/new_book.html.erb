@@ -1,0 +1,20 @@
+<h1>Add book to <%= @library.name %></h1>
+
+<%= form_with url: add_book_library_path, method: :post do |main_form| %>
+
+  <%= main_form.fields_for :acquisition do |form| %>
+    <div class="mb-3">
+      <%= form.label 'Acquisition year', class: 'form-label' %>
+      <%= form.number_field :year, class: 'form-control', value: Date.today.year %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :book_id, class: 'form-label' %>
+      <%= form.collection_select :book_id, Book.all, :id, :full_description, {}, { class: 'form-select' } %>
+    </div>
+  <% end %>
+
+
+  <%= main_form.submit 'Add book', class: 'btn btn-primary' %>
+
+<% end %>
