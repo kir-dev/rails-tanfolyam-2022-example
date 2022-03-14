@@ -17,6 +17,12 @@
 
 class Book < ApplicationRecord
   belongs_to :author
-  has_many :acquisitions
+  has_many :acquisitions, dependent: :destroy
   has_many :libraries, through: :acquisitions
+
+
+  def full_description
+    "#{author.name}: #{title}"
+  end
+
 end

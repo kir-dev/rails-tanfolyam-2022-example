@@ -10,6 +10,6 @@
 #
 
 class Library < ApplicationRecord
-  has_many :acquisitions
+  has_many :acquisitions, dependent: :destroy
   has_many :books, through: :acquisitions
 end
