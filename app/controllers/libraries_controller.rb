@@ -8,6 +8,7 @@ class LibrariesController < ApplicationController
 
   # GET /libraries/1 or /libraries/1.json
   def show
+    @books = @library.books.order(:year).distinct(:id)
   end
 
   # GET /libraries/new
@@ -58,13 +59,14 @@ class LibrariesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_library
-      @library = Library.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def library_params
-      params.require(:library).permit(:name, :nationality)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_library
+    @library = Library.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def library_params
+    params.require(:library).permit(:name, :nationality)
+  end
 end

@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Libraries</h1>
 
-<div id="libraries">
-  <% @libraries.each do |library| %>
-    <%= render library %>
-    <p>
-      <%= link_to "Show this library", library %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New library", new_library_path %>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Nationality</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @libraries.each do |library| %>
+    <tr>
+      <td><%= library.name %></td>
+      <td><%= library.nationality %></td>
+      <td>
+        <div class="btn-group" role="group">
+          <%= link_to library, class: 'btn btn-outline-success  btn-sm' do %>
+            <i class="bi bi-eye-fill"></i>
+          <% end %>
+          <%= link_to edit_library_path(library), class: 'btn btn-outline-warning  btn-sm'  do %>
+            <i class="bi bi-pencil"></i>
+          <% end %>
+          <%= button_to library, class: 'btn btn-outline-danger  btn-sm', method: :delete do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+<%= link_to "New library", new_library_path, class: 'btn btn-primary' %>
