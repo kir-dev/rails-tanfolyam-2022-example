@@ -15,8 +15,8 @@
     <tr>
       <td><%= author.name %></td>
       <td><%= author.nationality %></td>
-      <td><%= author.birthdate%></td>
-      <td><%= author.books.count%></td>
+      <td><%= author.birthdate %></td>
+      <td><%= author.books.count %></td>
       <td>
         <div class="btn-group" role="group">
           <%= link_to author, class: 'btn btn-outline-success  btn-sm' do %>
@@ -35,4 +35,4 @@
   </tbody>
 </table>
 
-  <%= link_to "New author", new_author_path, class: 'btn btn-primary' %>
+<%= link_to "New author", new_author_path, class: 'btn btn-primary' %>

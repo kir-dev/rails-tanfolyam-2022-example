@@ -13,25 +13,25 @@
 
   <div class="mb-3">
     <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title , class: 'form-control'%>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :isbn, class: 'form-label'  %>
+    <%= form.label :isbn, class: 'form-label' %>
     <%= form.text_field :isbn, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
     <%= form.label :year, class: 'form-label' %>
-    <%= form.number_field :year , class: 'form-control'%>
+    <%= form.number_field :year, class: 'form-control' %>
   </div>
 
   <div class="mb-3">
     <%= form.label :author_id, class: 'form-label' %>
-    <%= form.collection_select :author_id, Author.all, :id, :name, {}, {class: 'form-select'} %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, {}, { class: 'form-select' } %>
   </div>
 
-  <div >
-    <%= form.submit class: 'btn btn-primary'%>
+  <div>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
