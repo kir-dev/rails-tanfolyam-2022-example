@@ -2,13 +2,37 @@
 
 <h1>Books</h1>
 
-<div id="books">
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Full title</th>
+    <th scope="col">ISBN</th>
+    <th scope="col">Year written</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+    <tr>
+      <td><%= book.full_description %></td>
+      <td><%= book.isbn %></td>
+      <td><%= book.year%></td>
+      <td>
+        <div class="btn-group" role="group">
+          <%= link_to book, class: 'btn btn-outline-success  btn-sm' do %>
+            <i class="bi bi-eye-fill"></i>
+          <% end %>
+          <%= link_to edit_book_path(book), class: 'btn btn-outline-warning  btn-sm' do %>
+            <i class="bi bi-pencil"></i>
+          <% end %>
+          <%= button_to book, class: 'btn btn-outline-danger  btn-sm', method: :delete do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New book", new_book_path %>
+<%= link_to "New book", new_book_path, class: 'btn btn-primary' %>
