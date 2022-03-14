@@ -17,7 +17,21 @@ First you need to install gems
 bundle install
 ```
 
+You can create db with
+
+```bash
+rails db:create
+```
+And create test data with:
+```bash
+rails db:seed
+```
+
 Then you can run project with
 ```bash
 rails s
 ```
+
+### Useful commands
+
+`rails db:reset` -> drops db, and seeds it again
