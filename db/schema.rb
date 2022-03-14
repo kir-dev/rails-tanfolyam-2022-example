@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_14_204009) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_14_204522) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.date "birthdate"
@@ -27,6 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_204009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "libraries", force: :cascade do |t|
+    t.string "name"
+    t.string "nationality"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "books", "authors"
