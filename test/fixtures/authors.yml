@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: authors
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  birthdate   :date
+#  nationality :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  birthdate: 2022-03-14
+  nationality: MyString
+
+two:
+  name: MyString
+  birthdate: 2022-03-14
+  nationality: MyString
