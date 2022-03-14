@@ -1,14 +1,38 @@
-
-
 <h1>Authors</h1>
 
-<div id="authors">
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Nationality</th>
+    <th scope="col">Birthdate</th>
+    <th scope="col">#Books</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @authors.each do |author| %>
-    <%= render author %>
-    <p>
-      <%= link_to "Show this author", author %>
-    </p>
+    <tr>
+      <td><%= author.name %></td>
+      <td><%= author.nationality %></td>
+      <td><%= author.birthdate%></td>
+      <td><%= author.books.count%></td>
+      <td>
+        <div class="btn-group" role="group">
+          <%= link_to author, class: 'btn btn-outline-success  btn-sm' do %>
+            <i class="bi bi-eye-fill"></i>
+          <% end %>
+          <%= link_to edit_author_path(author), class: 'btn btn-outline-warning  btn-sm' do %>
+            <i class="bi bi-pencil"></i>
+          <% end %>
+          <%= button_to author, class: 'btn btn-outline-danger  btn-sm', method: :delete do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </div>
+      </td>
+    </tr>
   <% end %>
-</div>
+  </tbody>
+</table>
 
-<%= link_to "New author", new_author_path %>
+  <%= link_to "New author", new_author_path, class: 'btn btn-primary' %>

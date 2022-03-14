@@ -1,10 +1,36 @@
+<h1><%= @author.name %></h1>
+
+<p>
+  <strong>Nationality: </strong> <%= @author.nationality %>
+</p>
 
 
-<%= render @author %>
+<p><strong>Books it currently has:</strong> </p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">ISBN</th>
+    <th scope="col">Year written</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @books.each_with_index do |book,i| %>
+    <tr>
+      <th scope="row"><%= i+1 %></th>
+      <td><%= book.title %></td>
+      <td><%= book.isbn%></td>
+      <td><%= book.year %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<div>
-  <%= link_to "Edit this author", edit_author_path(@author) %> |
-  <%= link_to "Back to authors", authors_path %>
-
-  <%= button_to "Destroy this author", @author, method: :delete %>
+<div class="btn-group" role="group" >
+  <%= link_to "Back to authors", authors_path, class: 'btn btn-secondary' %>
+  <%= link_to "Edit this author", edit_author_path(@author), class: 'btn btn-outline-warning' %>
 </div>
+
+
+
