@@ -10,4 +10,6 @@
 #
 
 class Library < ApplicationRecord
+  has_many :acquisitions
+  has_many :books, through: :acquisitions
 end

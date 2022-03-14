@@ -17,4 +17,6 @@
 
 class Book < ApplicationRecord
   belongs_to :author
+  has_many :acquisitions
+  has_many :libraries, through: :acquisitions
 end
