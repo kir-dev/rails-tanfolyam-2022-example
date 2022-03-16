@@ -3,7 +3,7 @@
 Example project for Kir-Dev's 2022 Ruby on Rails course.
 
 ## Tech stack
- * ruby 3.1.0
+ * ruby 3.0.3
  * rails 7.0.2.3
  * sqlite3
  
